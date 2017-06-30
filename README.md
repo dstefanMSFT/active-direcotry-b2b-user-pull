@@ -52,11 +52,18 @@ install-module azureadpreview `
 >Above command requires Windows Server 2016 or [Windows Management Framework 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395)
 
 ### Create Azure AD Group for guests that should be pulled into on-premises
-To prevent pulling all users into on-premises environment, sample script filters guest users by group membership. 
+To prevent pulling all users into on-premises environment, sample script filters guest users by group membership. You can identify group with PowerShell:
+```powershell
+Get-AzureADGroup
+```
+You can verify group membership by using this cmdlet:
+```powershell
+Get-AzureADGroupMember -ObjectId <someObjectID>
+```
 
 ### Optional - Service account for running script schaduled task
 We recommend using Group Managed Service Accounts.
-```
+```powershell
 #running this command requires Domain Administrator Credentials
 $cpu = Get-ADComputer ComputerName #Server that will be running the script
 $acctName = "gmsa_b2b_script"
@@ -88,7 +95,8 @@ Register-ScheduledTask ShadowB2BUsers `
 ### Optional Delegate permissions to target OU for GMSA
 Account running script requires write permissions for OU dedicated for shadow accounts
 ```powershell
-dsacls.exe "OU=ShadowAccounts,DC=corp,DC=contoso,DC=com" /G 'corp\gmsa_b2b_script$:GA'
+dsacls.exe "OU=ShadowAccounts,DC=corp,DC=contoso,DC=com" /G 'corp\gmsa_b2b_script$:GA' /I:T
 ```
 
 ## Considerations
+For increased security consider modifying script to use certificate-based authentication to impersonate Service principal in Azure AD: [Using a Service Principal to connect to a directory in PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/signing-in-service-principal)

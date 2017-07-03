@@ -99,4 +99,4 @@ dsacls.exe "OU=ShadowAccounts,DC=corp,DC=contoso,DC=com" /G 'corp\gmsa_b2b_scrip
 ```
 
 ## Considerations
-For increased security consider modifying script to use certificate-based authentication to impersonate Service principal in Azure AD: [Using a Service Principal to connect to a directory in PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/signing-in-service-principal)
+For increased security consider modifying script to use certificate-based authentication to impersonate Service principal in Azure AD: [Using a Service Principal to connect to a directory in PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/signing-in-service-principal)

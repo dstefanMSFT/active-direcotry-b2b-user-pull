@@ -11,13 +11,13 @@ Script sample for pulling AAD b2b users into on-premises AD
   ![App properties](DocImages/snip2.png)
 
 * From the application list, find the app you just created and click to open and edit it
-* Click on "Required permissions", then click "+ Add". On "Select an API", click and select "Microsoft Graph"
+* Click on "Required permissions", then click "+ Add". On "Select an API", click and select "Windows Azure Active Directory"
 * Click "Select permissions". On the "Enable Access" panel that appears, check the following items:
   * APPLICATION PERMISSIONS
     * Read Directory Data
 * Click "Select"
 
-  ![App permissions](DocImages/snip3.png)
+  ![App permissions](DocImages/snip3a.png)
 
 * Back on the "Required permissions" panel, click the "Grant Permissions" button at the top.
 

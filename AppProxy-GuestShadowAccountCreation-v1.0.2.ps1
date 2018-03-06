@@ -36,16 +36,14 @@
 #>
 
 <#
-BUGBUG
-- add cert based auth
+Recommended ToDo/caveats for production deployments
+- add certificate based authentication for Service Principal Name
 - decide on where and whether to filter on active/disabled AAD status
-- how should we populate the samAccountName? At the moment I take first 20 characters of the UPN
+- At the moment I take first 20 characters of the UPN
 - if the B2B user is re-invited after having been deleted and the shadow account is archived, recreation of a new shadow accounn will fail. 
-  Should we handle this? We could check the archive OU and move the account back. THoughts?
-- need error handling if Add-AdUser call fails
+- there is no error handling if Add-AdUser call fails
 - add reporting - should be off by default but available for troubleshooting
-- clean up telemetry
-/BUGBUG
+/ToDo/caveats
 #>
 
 # Set up variables

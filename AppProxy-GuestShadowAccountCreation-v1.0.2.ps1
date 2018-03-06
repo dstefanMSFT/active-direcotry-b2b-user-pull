@@ -39,7 +39,7 @@
 Recommended ToDo/caveats for production deployments
 - add certificate based authentication for Service Principal Name
 - decide on where and whether to filter on active/disabled AAD status
-- At the moment I take first 20 characters of the UPN
+- At the moment script takes first 20 characters of the UPN
 - if the B2B user is re-invited after having been deleted and the shadow account is archived, recreation of a new shadow accounn will fail. 
 - there is no error handling if Add-AdUser call fails
 - add reporting - should be off by default but available for troubleshooting
